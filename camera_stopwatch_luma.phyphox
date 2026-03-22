@@ -1,0 +1,748 @@
+<phyphox xmlns="https://phyphox.org/xml" xmlns:editor="https://phyphox.org/xml/editor" version="1.19">
+  <title>基于光敏计时器的瞬时速度</title>
+  <category>工具</category>
+  <icon format="base64">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</icon>
+  <description>本工具基于phyphox官方的“Camera stopwatch: Brightness”实验改造而来。
+测量亮度发生变化的时间间隔，例如由物体经过引起的变化。并借助用户输入的物体间距近似地计算出这一过程中的瞬时速度。请注意：实际运动速度越快，测量误差越小。
+此配置允许你为测量矩形区域内的平均亮度（更具体地说是光亮度）设置一个下限阈值和一个上限阈值。如果亮度超过上限阈值或低于下限阈值，当前时间将被记录为一个触发事件。系统会记录不同事件之间的时间间隔以及这些事件的持续时间。
+时间分辨率由摄像头的预览帧率决定，通常固定为 30fps，因此采样率为 33 毫秒。请注意，Phyphox 使用的是摄像头的预览流进行实时分析，其速率受限于此。如果你的手机支持高速或慢动作录制，更高的帧率仅适用于录制模式（而非实时模式），而 Phyphox 目前并未使用录制模式。
+如果你使用自动曝光，请注意平均亮度会在短时间内漂移到 0.5 左右。这可能允许在光线变化的条件下进行可靠的触发，但也可能会影响触发和特别是测量持续时间的精度。另外请注意，此秒表使用的是亮度（luma）而非光亮度（luminance），即一种可以更快计算出的亮度的非线性表示。这意味着该值将无法与光亮度测量值进行比较，并且会受到曝光设置变化的影响。
+如果你愿意减小自动曝光带来的误差，你可以点击摄像头预览框并将下方的“AE”设置为“off”</description>
+  <data-containers>
+    <container size="0">inLuma</container>
+    <container size="0">thisLuma</container>
+    <container>luma_last</container>
+    <container>t_last</container>
+    <container>t_limit</container>
+    <container size="0">inT</container>
+    <container size="0">triggering</container>
+    <container size="0">triggering_change</container>
+    <container init="0.3">threshold_low</container>
+    <container init="0.7">threshold_high</container>
+    <container init="1">outside</container>
+    <container size="0">amplitude</container>
+    <container size="0">t</container>
+    <container size="0">onEvents</container>
+    <container size="0">offEvents</container>
+    <container size="0">dtlist</container>
+    <container size="0">ddlist</container>
+    <container size="0">tindex</container>
+    <container>tcount</container>
+    <container>tcount-1</container>
+    <container>avgInterval</container>
+    <container>avgRate</container>
+    <container>avgBPM</container>
+    <container init="0">on0</container>
+    <container init="0">on1</container>
+    <container init="0">on2</container>
+    <container init="0">on3</container>
+    <container init="0">on4</container>
+    <container init="0">on5</container>
+    <container init="0">off0</container>
+    <container init="0">off1</container>
+    <container init="0">off2</container>
+    <container init="0">off3</container>
+    <container init="0">off4</container>
+    <container init="0">off5</container>
+    <container>don0</container>
+    <container>don1</container>
+    <container>don2</container>
+    <container>don3</container>
+    <container>don4</container>
+    <container>don5</container>
+    <container>dt01</container>
+    <container>dt02</container>
+    <container>dt03</container>
+    <container>dt04</container>
+    <container>dt05</container>
+    <container>dt12</container>
+    <container>dt23</container>
+    <container>dt34</container>
+    <container>dt45</container>
+    <container init="0">reset</container>
+    <container size="5">lastTimes</container>
+    <container size="0">lastPeriods</container>
+    <container>framePeriod</container>
+    <container>frameRate</container>
+    <container size="0">X</container>
+    <container size="0">V</container>
+    <container size="0">thelastdt</container>
+  </data-containers>
+  <input>
+    <camera x1="0.4" x2="0.6" y1="0.4" y2="0.6" aeStrategy="prioritizeFramerate">
+      <output component="luma">inLuma</output>
+      <output component="t">inT</output>
+    </camera>
+  </input>
+  <analysis>
+    <append>
+      <input keep="true">inLuma</input>
+      <output append="true">amplitude</output>
+    </append>
+    <append>
+      <input keep="true">inT</input>
+      <output append="true">t</output>
+    </append>
+    <append>
+      <input keep="true">inLuma</input>
+      <input>luma_last</input>
+      <output>luma_last</output>
+    </append>
+    <append>
+      <input>luma_last</input>
+      <input>inLuma</input>
+      <output>thisLuma</output>
+    </append>
+    <append>
+      <input keep="true">thisLuma</input>
+      <output>luma_last</output>
+    </append>
+    <append>
+      <input keep="true">t</input>
+      <output>t_last</output>
+    </append>
+    <subtract>
+      <input>t_last</input>
+      <input type="value">10</input>
+      <output>t_limit</output>
+    </subtract>
+    <rangefilter>
+      <input as="in">t</input>
+      <input as="min">t_limit</input>
+      <input as="in">amplitude</input>
+      <output as="out">t</output>
+      <output as="out">amplitude</output>
+    </rangefilter>
+    <formula formula="min((1-heaviside([4]))*(heaviside([1_]-[3]) * heaviside([2]-[1_])) + (heaviside([4]))*(heaviside([1_]-[2]) + heaviside([3]-[1_])),1)">
+      <input>thisLuma</input>
+      <input keep="true">threshold_high</input>
+      <input keep="true">threshold_low</input>
+      <input keep="true">outside</input>
+      <output>triggering</output>
+    </formula>
+    <differentiate>
+      <input as="in" keep="true">triggering</input>
+      <output>triggering_change</output>
+    </differentiate>
+    <rangefilter>
+      <input as="in" keep="true">inT</input>
+      <input as="in" keep="true">triggering_change</input>
+      <input as="min" type="value">0.5</input>
+      <output as="out" append="true">onEvents</output>
+    </rangefilter>
+    <rangefilter>
+      <input as="in">inT</input>
+      <input as="in">triggering_change</input>
+      <input as="max" type="value">-0.5</input>
+      <output as="out" append="true">offEvents</output>
+    </rangefilter>
+    <append>
+      <input keep="true">t</input>
+      <output>on0</output>
+    </append>
+    <append>
+      <input keep="true">t</input>
+      <output>on1</output>
+    </append>
+    <append>
+      <input keep="true">t</input>
+      <output>on2</output>
+    </append>
+    <append>
+      <input keep="true">t</input>
+      <output>on3</output>
+    </append>
+    <append>
+      <input keep="true">t</input>
+      <output>on4</output>
+    </append>
+    <append>
+      <input keep="true">t</input>
+      <output>on5</output>
+    </append>
+    <append>
+      <input keep="true">t</input>
+      <output>off0</output>
+    </append>
+    <append>
+      <input keep="true">t</input>
+      <output>off1</output>
+    </append>
+    <append>
+      <input keep="true">t</input>
+      <output>off2</output>
+    </append>
+    <append>
+      <input keep="true">t</input>
+      <output>off3</output>
+    </append>
+    <append>
+      <input keep="true">t</input>
+      <output>off4</output>
+    </append>
+    <append>
+      <input keep="true">t</input>
+      <output>off5</output>
+    </append>
+    <if greater="true">
+      <input as="a" keep="true">reset</input>
+      <input type="value" as="b">0</input>
+      <input type="empty" as="true"/>
+      <output>amplitude</output>
+    </if>
+    <if greater="true">
+      <input as="a" keep="true">reset</input>
+      <input type="value" as="b">0</input>
+      <input type="empty" as="true"/>
+      <output>t</output>
+    </if>
+    <if greater="true">
+      <input as="a" keep="true">reset</input>
+      <input type="value" as="b">0</input>
+      <input type="empty" as="true"/>
+      <output>luma_last</output>
+    </if>
+    <if greater="true">
+      <input as="a" keep="true">reset</input>
+      <input type="value" as="b">0</input>
+      <input type="empty" as="true"/>
+      <output>onEvents</output>
+    </if>
+    <if greater="true">
+      <input as="a" keep="true">reset</input>
+      <input type="value" as="b">0</input>
+      <input type="empty" as="true"/>
+      <output>offEvents</output>
+    </if>
+    <if greater="true">
+      <input as="a" keep="true">reset</input>
+      <input type="value" as="b">0</input>
+      <input type="empty" as="true"/>
+      <output>inT</output>
+    </if>
+    <if greater="true">
+      <input as="a" keep="true">reset</input>
+      <input type="value" as="b">0</input>
+      <input type="empty" as="true"/>
+      <output>inLuma</output>
+    </if>
+    <append>
+      <input type="value">0</input>
+      <output>reset</output>
+    </append>
+    <subrange>
+      <input as="in" keep="true">onEvents</input>
+      <input as="from" type="value">0</input>
+      <input as="length" type="value">1</input>
+      <output as="out" append="true">on0</output>
+    </subrange>
+    <subrange>
+      <input as="in" keep="true">onEvents</input>
+      <input as="from" type="value">1</input>
+      <input as="length" type="value">1</input>
+      <output as="out" append="true">on1</output>
+    </subrange>
+    <subrange>
+      <input as="in" keep="true">onEvents</input>
+      <input as="from" type="value">2</input>
+      <input as="length" type="value">1</input>
+      <output as="out" append="true">on2</output>
+    </subrange>
+    <subrange>
+      <input as="in" keep="true">onEvents</input>
+      <input as="from" type="value">3</input>
+      <input as="length" type="value">1</input>
+      <output as="out" append="true">on3</output>
+    </subrange>
+    <subrange>
+      <input as="in" keep="true">onEvents</input>
+      <input as="from" type="value">4</input>
+      <input as="length" type="value">1</input>
+      <output as="out" append="true">on4</output>
+    </subrange>
+    <subrange>
+      <input as="in" keep="true">onEvents</input>
+      <input as="from" type="value">5</input>
+      <input as="length" type="value">1</input>
+      <output as="out" append="true">on5</output>
+    </subrange>
+    <subrange>
+      <input as="in" keep="true">offEvents</input>
+      <input as="from" type="value">0</input>
+      <input as="length" type="value">1</input>
+      <output as="out" append="true">off0</output>
+    </subrange>
+    <subrange>
+      <input as="in" keep="true">offEvents</input>
+      <input as="from" type="value">1</input>
+      <input as="length" type="value">1</input>
+      <output as="out" append="true">off1</output>
+    </subrange>
+    <subrange>
+      <input as="in" keep="true">offEvents</input>
+      <input as="from" type="value">2</input>
+      <input as="length" type="value">1</input>
+      <output as="out" append="true">off2</output>
+    </subrange>
+    <subrange>
+      <input as="in" keep="true">offEvents</input>
+      <input as="from" type="value">3</input>
+      <input as="length" type="value">1</input>
+      <output as="out" append="true">off3</output>
+    </subrange>
+    <subrange>
+      <input as="in" keep="true">offEvents</input>
+      <input as="from" type="value">4</input>
+      <input as="length" type="value">1</input>
+      <output as="out" append="true">off4</output>
+    </subrange>
+    <subrange>
+      <input as="in" keep="true">offEvents</input>
+      <input as="from" type="value">5</input>
+      <input as="length" type="value">1</input>
+      <output as="out" append="true">off5</output>
+    </subrange>
+    <subtract>
+      <input keep="true">on1</input>
+      <input keep="true">on0</input>
+      <output>dt01</output>
+    </subtract>
+    <subtract>
+      <input keep="true">on2</input>
+      <input keep="true">on0</input>
+      <output>dt02</output>
+    </subtract>
+    <subtract>
+      <input keep="true">on3</input>
+      <input keep="true">on0</input>
+      <output>dt03</output>
+    </subtract>
+    <subtract>
+      <input keep="true">on4</input>
+      <input keep="true">on0</input>
+      <output>dt04</output>
+    </subtract>
+    <subtract>
+      <input keep="true">on5</input>
+      <input keep="true">on0</input>
+      <output>dt05</output>
+    </subtract>
+    <subtract>
+      <input keep="true">on2</input>
+      <input keep="true">on1</input>
+      <output>dt12</output>
+    </subtract>
+    <subtract>
+      <input keep="true">on3</input>
+      <input keep="true">on2</input>
+      <output>dt23</output>
+    </subtract>
+    <subtract>
+      <input keep="true">on4</input>
+      <input keep="true">on3</input>
+      <output>dt34</output>
+    </subtract>
+    <subtract>
+      <input keep="true">on5</input>
+      <input keep="true">on4</input>
+      <output>dt45</output>
+    </subtract>
+    <subtract>
+      <input keep="true">off0</input>
+      <input keep="true">on0</input>
+      <output>don0</output>
+    </subtract>
+    <subtract>
+      <input keep="true">off1</input>
+      <input keep="true">on1</input>
+      <output>don1</output>
+    </subtract>
+    <subtract>
+      <input keep="true">off2</input>
+      <input keep="true">on2</input>
+      <output>don2</output>
+    </subtract>
+    <subtract>
+      <input keep="true">off3</input>
+      <input keep="true">on3</input>
+      <output>don3</output>
+    </subtract>
+    <subtract>
+      <input keep="true">off4</input>
+      <input keep="true">on4</input>
+      <output>don4</output>
+    </subtract>
+    <subtract>
+      <input keep="true">off5</input>
+      <input keep="true">on5</input>
+      <output>don5</output>
+    </subtract>
+    <if less="true" equal="true">
+      <input as="a" keep="true">dt01</input>
+      <input type="value" as="b">0</input>
+      <input type="empty" as="true"/>
+      <output>dt01</output>
+    </if>
+    <if less="true" equal="true">
+      <input as="a" keep="true">dt02</input>
+      <input type="value" as="b">0</input>
+      <input type="empty" as="true"/>
+      <output>dt02</output>
+    </if>
+    <if less="true" equal="true">
+      <input as="a" keep="true">dt03</input>
+      <input type="value" as="b">0</input>
+      <input type="empty" as="true"/>
+      <output>dt03</output>
+    </if>
+    <if less="true" equal="true">
+      <input as="a" keep="true">dt04</input>
+      <input type="value" as="b">0</input>
+      <input type="empty" as="true"/>
+      <output>dt04</output>
+    </if>
+    <if less="true" equal="true">
+      <input as="a" keep="true">dt05</input>
+      <input type="value" as="b">0</input>
+      <input type="empty" as="true"/>
+      <output>dt05</output>
+    </if>
+    <if less="true" equal="true">
+      <input as="a" keep="true">dt12</input>
+      <input type="value" as="b">0</input>
+      <input type="empty" as="true"/>
+      <output>dt12</output>
+    </if>
+    <if less="true" equal="true">
+      <input as="a" keep="true">dt23</input>
+      <input type="value" as="b">0</input>
+      <input type="empty" as="true"/>
+      <output>dt23</output>
+    </if>
+    <if less="true" equal="true">
+      <input as="a" keep="true">dt34</input>
+      <input type="value" as="b">0</input>
+      <input type="empty" as="true"/>
+      <output>dt34</output>
+    </if>
+    <if less="true" equal="true">
+      <input as="a" keep="true">dt45</input>
+      <input type="value" as="b">0</input>
+      <input type="empty" as="true"/>
+      <output>dt45</output>
+    </if>
+    <if less="true" equal="true">
+      <input as="a" keep="true">don0</input>
+      <input type="value" as="b">0</input>
+      <input type="empty" as="true"/>
+      <output>don0</output>
+    </if>
+    <if less="true" equal="true">
+      <input as="a" keep="true">don1</input>
+      <input type="value" as="b">0</input>
+      <input type="empty" as="true"/>
+      <output>don1</output>
+    </if>
+    <if less="true" equal="true">
+      <input as="a" keep="true">don2</input>
+      <input type="value" as="b">0</input>
+      <input type="empty" as="true"/>
+      <output>don2</output>
+    </if>
+    <if less="true" equal="true">
+      <input as="a" keep="true">don3</input>
+      <input type="value" as="b">0</input>
+      <input type="empty" as="true"/>
+      <output>don3</output>
+    </if>
+    <if less="true" equal="true">
+      <input as="a" keep="true">don4</input>
+      <input type="value" as="b">0</input>
+      <input type="empty" as="true"/>
+      <output>don4</output>
+    </if>
+    <if less="true" equal="true">
+      <input as="a" keep="true">don5</input>
+      <input type="value" as="b">0</input>
+      <input type="empty" as="true"/>
+      <output>don5</output>
+    </if>
+    <append>
+      <input keep="true">t</input>
+      <output>lastTimes</output>
+    </append>
+    <differentiate>
+      <input as="in" keep="true">lastTimes</input>
+      <output>lastPeriods</output>
+    </differentiate>
+    <average>
+      <input as="buffer">lastPeriods</input>
+      <output>framePeriod</output>
+    </average>
+    <divide>
+      <input type="value">1</input>
+      <input keep="true">framePeriod</input>
+      <output>frameRate</output>
+    </divide>
+    <differentiate>
+      <input as="in" keep="true">onEvents</input>
+      <output>dtlist</output>
+    </differentiate>
+    <average>
+      <input as="buffer" keep="true">dtlist</input>
+      <output>avgInterval</output>
+    </average>
+    <divide>
+      <input keep="true">X</input>
+      <input keep="true">dtlist</input>
+      <output>V</output>
+    </divide>
+    <append>
+      <input keep="true">dtlist</input>
+      <output>thelastdt</output>
+    </append>
+    <divide>
+      <input type="value">1</input>
+      <input keep="true">avgInterval</input>
+      <output>avgRate</output>
+    </divide>
+    <multiply>
+      <input keep="true">avgRate</input>
+      <input type="value">60</input>
+      <output>avgBPM</output>
+    </multiply>
+    <append>
+      <input type="value">0</input>
+      <input>dtlist</input>
+      <input type="value">0</input>
+      <output>dtlist</output>
+    </append>
+    <subtract>
+      <input keep="true">offEvents</input>
+      <input keep="true">onEvents</input>
+      <output>ddlist</output>
+    </subtract>
+    <append>
+      <input type="value">0</input>
+      <output append="true">ddlist</output>
+    </append>
+    <count>
+      <input as="buffer" keep="true">ddlist</input>
+      <output>tcount</output>
+    </count>
+    <subtract>
+      <input keep="true">tcount</input>
+      <input type="value">1</input>
+      <output>tcount-1</output>
+    </subtract>
+    <ramp>
+      <input as="start" type="value">0</input>
+      <input as="stop">tcount-1</input>
+      <input as="length">tcount</input>
+      <output>tindex</output>
+    </ramp>
+  </analysis>
+  <views>
+    <view label="设置">
+      <camera-gui label="Preview" exposure_adjustment_level="3" showControls="always"/>
+      <slider label="Trigger range" type="range" minValue="0" maxValue="1" stepSize="0.01">
+        <output value="lowerValue">threshold_low</output>
+        <output value="upperValue">threshold_high</output>
+      </slider>
+      <dropdown label="Trigger">
+        <output>outside</output>
+        <map value="1">outside range</map>
+        <map value="-1">inside range</map>
+      </dropdown>
+      <value label="State">
+        <input>triggering</input>
+        <map max="0.5">Idle</map>
+        <map min="0.5">Triggered</map>
+      </value>
+      <separator height="1"/>
+      <graph label="Luma" partialUpdate="true" labelX="[[quantity_short_time]]" labelY="[[quantity_short_luma]]" unitX="[[unit_short_second]]">
+        <input axis="x">t</input>
+        <input axis="y">amplitude</input>
+      </graph>
+      <separator height="1"/>
+      <value label="Frame rate" precision="1" unit="[[unit_short_hertz]]">
+        <input>frameRate</input>
+      </value>
+    </view>
+    <view label="速度">
+      <edit label="灯光间距" signed="false" unit="m" default="12">
+        <output>X</output>
+      </edit>
+      <info label="注：地铁灯光间距约为12m" color="weakwhite" italic="true" align="center"/>
+      <value label="时间变化量" unit="秒">
+        <input>thelastdt</input>
+      </value>
+      <value label="已进行时间" unit="秒">
+        <input>onEvents</input>
+      </value>
+      <value label="速度" color="green" size="3" unit="m/s">
+        <input>V</input>
+      </value>
+      <value label="速度" color="green" size="3" unit="km/h" factor="3.6">
+        <input>V</input>
+      </value>
+      <graph label="速度——时间" labelX="时刻" labelY="（近似）瞬时速度" unitX="秒" unitY="m/s">
+        <input axis="x">onEvents</input>
+        <input axis="y">V</input>
+      </graph>
+    </view>
+    <view label="序列">
+      <value label="时间 1" size="3" precision="2" unit="[[unit_short_second]]">
+        <input>dt01</input>
+      </value>
+      <value label="时间 2" size="3" precision="2" unit="[[unit_short_second]]">
+        <input>dt12</input>
+      </value>
+      <value label="时间 3" size="3" precision="2" unit="[[unit_short_second]]">
+        <input>dt23</input>
+      </value>
+      <value label="时间 4" size="3" precision="2" unit="[[unit_short_second]]">
+        <input>dt34</input>
+      </value>
+      <value label="时间 5" size="3" precision="2" unit="[[unit_short_second]]">
+        <input>dt45</input>
+      </value>
+      <separator height="1"/>
+      <button label="复位">
+        <input type="value">1</input>
+        <output>reset</output>
+      </button>
+    </view>
+    <view label="并行">
+      <value label="时间 1" size="3" precision="2" unit="[[unit_short_second]]">
+        <input>dt01</input>
+      </value>
+      <value label="时间 2" size="3" precision="2" unit="[[unit_short_second]]">
+        <input>dt02</input>
+      </value>
+      <value label="时间 3" size="3" precision="2" unit="[[unit_short_second]]">
+        <input>dt03</input>
+      </value>
+      <value label="时间 4" size="3" precision="2" unit="[[unit_short_second]]">
+        <input>dt04</input>
+      </value>
+      <value label="时间 5" size="3" precision="2" unit="[[unit_short_second]]">
+        <input>dt05</input>
+      </value>
+      <separator height="1"/>
+      <button label="复位">
+        <input type="value">1</input>
+        <output>reset</output>
+      </button>
+    </view>
+    <view label="持续时长">
+      <value label="触发持续 0" size="3" precision="2" unit="[[unit_short_second]]">
+        <input>don0</input>
+      </value>
+      <value label="触发持续 1" size="3" precision="2" unit="[[unit_short_second]]">
+        <input>don1</input>
+      </value>
+      <value label="触发持续 2" size="3" precision="2" unit="[[unit_short_second]]">
+        <input>don2</input>
+      </value>
+      <value label="触发持续 3" size="3" precision="2" unit="[[unit_short_second]]">
+        <input>don3</input>
+      </value>
+      <value label="触发持续 4" size="3" precision="2" unit="[[unit_short_second]]">
+        <input>don4</input>
+      </value>
+      <value label="触发持续 5" size="3" precision="2" unit="[[unit_short_second]]">
+        <input>don5</input>
+      </value>
+      <separator height="1"/>
+      <button label="复位">
+        <input type="value">1</input>
+        <output>reset</output>
+      </button>
+    </view>
+    <view label="触发器">
+      <value label="触发起始 0" size="1" precision="2" unit="[[unit_short_second]]">
+        <input>on0</input>
+      </value>
+      <value label="触发结束 0" size="1" precision="2" unit="[[unit_short_second]]">
+        <input>off0</input>
+      </value>
+      <separator height="1"/>
+      <value label="触发起始 1" size="1" precision="2" unit="[[unit_short_second]]">
+        <input>on1</input>
+      </value>
+      <value label="触发结束 1" size="1" precision="2" unit="[[unit_short_second]]">
+        <input>off1</input>
+      </value>
+      <separator height="1"/>
+      <value label="触发起始 2" size="1" precision="2" unit="[[unit_short_second]]">
+        <input>on2</input>
+      </value>
+      <value label="触发结束 2" size="1" precision="2" unit="[[unit_short_second]]">
+        <input>off2</input>
+      </value>
+      <separator height="1"/>
+      <value label="触发起始 3" size="1" precision="2" unit="[[unit_short_second]]">
+        <input>on3</input>
+      </value>
+      <value label="触发结束 3" size="1" precision="2" unit="[[unit_short_second]]">
+        <input>off3</input>
+      </value>
+      <separator height="1"/>
+      <value label="触发起始 4" size="1" precision="2" unit="[[unit_short_second]]">
+        <input>on4</input>
+      </value>
+      <value label="触发结束 4" size="1" precision="2" unit="[[unit_short_second]]">
+        <input>off4</input>
+      </value>
+      <separator height="1"/>
+      <value label="触发起始 5" size="1" precision="2" unit="[[unit_short_second]]">
+        <input>on5</input>
+      </value>
+      <value label="触发结束 5" size="1" precision="2" unit="[[unit_short_second]]">
+        <input>off5</input>
+      </value>
+      <separator height="1"/>
+      <button label="复位">
+        <input type="value">1</input>
+        <output>reset</output>
+      </button>
+    </view>
+    <view label="多任务">
+      <graph label="Trigger on events" labelX="任务数" labelY="事件间隔" unitY="[[unit_short_second]]">
+        <input axis="x">tindex</input>
+        <input style="vbars" lineWidth="0.9" axis="y">dtlist</input>
+      </graph>
+      <graph label="Trigger durations" labelX="任务数" labelY="持续时长" unitY="[[unit_short_second]]" scaleMinY="fixed" minY="0">
+        <input axis="x">tindex</input>
+        <input style="vbars" lineWidth="0.9" axis="y">ddlist</input>
+      </graph>
+      <value label="任务数" size="1" precision="0">
+        <input>tindex</input>
+      </value>
+      <value label="平均间隔" size="2" precision="3" unit="[[unit_short_second]]">
+        <input>avgInterval</input>
+      </value>
+      <value label="平均频率" size="2" precision="2" unit="[[unit_short_hertz]]">
+        <input>avgRate</input>
+      </value>
+      <value label="平均频率（次/分钟）" size="2" precision="1" unit="1/min">
+        <input>avgBPM</input>
+      </value>
+      <button label="复位">
+        <input type="value">1</input>
+        <output>reset</output>
+      </button>
+    </view>
+  </views>
+  <export>
+    <set name="Raw">
+      <data name="t (s)">t</data>
+      <data name="Luma">amplitude</data>
+    </set>
+    <set name="Events">
+      <data name="On (s)">onEvents</data>
+      <data name="Off (s)">offEvents</data>
+    </set>
+  </export>
+</phyphox>
